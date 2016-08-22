@@ -1,0 +1,71 @@
+speicher210_fastbill_notification_subscription_created:
+  path: /notification/subscription/created
+  methods: [POST]
+  defaults:
+    _controller: Speicher210FastbillBundle:Notification/Subscription:created
+
+speicher210_fastbill_notification_subscription_changed:
+  path: /notification/subscription/changed
+  methods: [POST]
+  defaults:
+    _controller: Speicher210FastbillBundle:Notification/Subscription:changed
+
+speicher210_fastbill_notification_subscription_canceled:
+  path: /notification/subscription/canceled
+  methods: [POST]
+  defaults:
+    _controller: Speicher210FastbillBundle:Notification/Subscription:canceled
+
+speicher210_fastbill_notification_subscription_closed:
+  path: /notification/subscription/closed
+  methods: [POST]
+  defaults:
+    _controller: Speicher210FastbillBundle:Notification/Subscription:closed
+
+speicher210_fastbill_notification_subscription_reactivated:
+  path: /notification/subscription/reactivated
+  methods: [POST]
+  defaults:
+    _controller: Speicher210FastbillBundle:Notification/Subscription:reactivated
+
+speicher210_fastbill_notification_customer_created:
+  path: /notification/customer/created
+  methods: [POST]
+  defaults:
+    _controller: Speicher210FastbillBundle:Notification/Customer:created
+
+speicher210_fastbill_notification_customer_changed:
+  path: /notification/customer/changed
+  methods: [POST]
+  defaults:
+    _controller: Speicher210FastbillBundle:Notification/Customer:changed
+
+speicher210_fastbill_notification_customer_deleted:
+  path: /notification/customer/deleted
+  methods: [POST]
+  defaults:
+    _controller: Speicher210FastbillBundle:Notification/Customer:deleted
+
+speicher210_fastbill_notification_payment_created:
+  path: /notification/payment/created
+  methods: [POST]
+  defaults:
+    _controller: Speicher210FastbillBundle:Notification/Payment:created
+
+speicher210_fastbill_notification_payment_chargeback:
+  path: /notification/payment/chargeback
+  methods: [POST]
+  defaults:
+    _controller: Speicher210FastbillBundle:Notification/Payment:chargeback
+
+speicher210_fastbill_notification_payment_failed:
+  path: /notification/payment/failed
+  methods: [POST]
+  defaults:
+    _controller: Speicher210FastbillBundle:Notification/Payment:failed
+
+speicher210_fastbill_notification_payment_refunded:
+  path: /notification/payment/refunded
+  methods: [POST]
+  defaults:
+    _controller: Speicher210FastbillBundle:Notification/Payment:refunded

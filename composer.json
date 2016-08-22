@@ -1,0 +1,47 @@
+{
+    "name": "speicher210/monsum-bundle",
+    "type": "library",
+    "description": "Symfony Bundle for Monsum API.",
+    "keywords": [
+        "monsum",
+        "fastbill",
+        "bundle"
+    ],
+    "homepage": "https://github.com/speicher210/monsum-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dragos Protung",
+            "email": "dragos@protung.ro",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=5.5.0",
+        "speicher210/monsum-api": "dev-master",
+        "symfony/framework-bundle": "~2.5|~3.0",
+        "symfony/validator": "~2.5|~3.0",
+        "jms/serializer-bundle": "~1.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "~4.8",
+        "symfony/browser-kit": "~2.5|~3.0",
+        "scrutinizer/ocular": "~1.3",
+        "squizlabs/php_codesniffer": "~2.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Speicher210\\FastbillBundle\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Speicher210\\FastbillBundle\\Test\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

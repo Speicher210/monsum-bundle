@@ -1,0 +1,47 @@
+{
+  "id": 398160,
+  "type": "payment.chargeback",
+  "customer": {
+    "customer_id": "578266",
+    "customer_ext_uid": "id_007",
+    "hash": "hash123",
+    "customer_number": "cn_77",
+    "companyname": "Muster GmbH",
+    "title": "Dr.",
+    "salutation": "Herr",
+    "firstname": "Martin",
+    "lastname": "Muster",
+    "address": "Am Musterhuegel 12",
+    "address_2": "Postfach 4",
+    "zipcode": "01234",
+    "city": "Musterhausen",
+    "country_code": "DE",
+    "email": "m.muster@email.de",
+    "payment_data_url": "https://automatic.fastbill.com/accountdata/a1/payment_data_url",
+    "dashboard_url": "https://automatic.fastbill.com/dashboard/a1/dashboard_url"
+  },
+  "subscription": {
+    "subscription_id": 216084,
+    "subscription_ext_uid": null,
+    "hash": "hash123",
+    "article_code": "072",
+    "quantity": "1"
+  },
+  "payment": {
+    "payment_id": 180828,
+    "invoice_id": 447236,
+    "invoice_number": "8",
+    "invoice_url": "https://automatic.fastbill.com/download/invoice_url",
+    "total_amount": 4.7005,
+    "currency": "EUR",
+    "method": "creditcard",
+    "gateway": "Adyen",
+    "reference": null,
+    "test": 1,
+    "type": "charge",
+    "status": "open",
+    "next_event": "2014-03-27 01:00:00",
+    "created": "2014-03-06 01:00:00"
+  },
+  "created": "2014-03-13 11:37:08"
+}

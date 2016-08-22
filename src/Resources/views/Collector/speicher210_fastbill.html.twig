@@ -1,0 +1,96 @@
+{% extends '@WebProfiler/Profiler/layout.html.twig' %}
+
+{% block toolbar %}
+    {% set icon %}
+        <span class="icon">{{ include('@Speicher210Fastbill/Collector/icon.svg') }}</span>
+        <span class="sf-toolbar-status">{{ collector.totalCalls }}</span>
+        <span class="sf-toolbar-info-piece-additional-detail">in {{ collector.totalTime }} ms</span>
+    {% endset %}
+
+    {% set text %}
+        {% for name, data in collector.requests %}
+            <div class="sf-toolbar-info-piece">
+                <b>{{ name|capitalize }}</b>
+                <span>{{ data.calls }} ({{ data.time }} ms)</span>
+            </div>
+        {% endfor %}
+    {% endset %}
+
+    {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { 'link': true }) }}
+{% endblock %}
+
+{% block menu %}
+    <span class="label">
+        <span class="icon">{{ include('@Speicher210Fastbill/Collector/icon.svg') }}</span>
+        <strong>Fastbill</strong>
+        <span class="count">
+            <span>{{ collector.totalCalls }}</span>
+            <span>{{ collector.totalTime }} ms</span>
+        </span>
+    </span>
+{% endblock %}
+
+{% block panel %}
+    <h2>API credentials</h2>
+    <table>
+        <thead>
+        <tr>
+            <th class="key" scope="col">Property</th>
+            <th scope="col">Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Email</th>
+            <td>{{ collector.credentials.email }}</td>
+        </tr>
+
+        <tr>
+            <th>Key</th>
+            <td>{{ collector.credentials.key }}</td>
+        </tr>
+        <tr>
+            <th>Account hash</th>
+            <td>{{ collector.credentials.account_hash }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>API calls</h2>
+    <div class="sf-tabs">
+        {% for name, data in collector.requests %}
+            <div class="tab">
+                <h3 class="tab-title">{{ name|capitalize }} <span class="badge">{{ data.calls }}</span></h3>
+
+                <div class="tab-content">
+                    {% if data.requests is empty %}
+                        <div class="empty">
+                            <p>No requests made.</p>
+                        </div>
+                    {% else %}
+                        <table>
+                            <thead>
+                            <tr>
+                                <th scope="col">Time</th>
+                                <th scope="col">Method</th>
+                                <th scope="col">Request</th>
+                                <th scope="col">Response</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for request in data.requests %}
+                                <tr>
+                                    <td nowrap>{{ request.time }} ms</td>
+                                    <td>{{ request.method }}</td>
+                                    <td>{{ request.request|json_encode(constant('JSON_PRETTY_PRINT')) }}</td>
+                                    <td>{{ request.response|json_encode(constant('JSON_PRETTY_PRINT')) }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

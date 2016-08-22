@@ -1,0 +1,9 @@
+framework:
+    test: true
+    secret: "secret"
+    router: { resource: "%kernel.root_dir%/routing.yml" }
+    form: true
+
+speicher210_fastbill:
+  username: "user"
+  api_key: "api_key"

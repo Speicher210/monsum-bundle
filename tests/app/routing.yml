@@ -1,0 +1,2 @@
+fastbill_notification:
+  resource: "@Speicher210FastbillBundle/Resources/config/routing.yml"

@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="speicher210_fastbill.transport_collector" class="Speicher210\FastbillBundle\DataCollector\TransportCollector" decorates="speicher210_fastbill.transport">
+            <argument type="service" id="speicher210_fastbill.transport_collector.inner" />
+            <argument type="service" id="debug.stopwatch" />
+        </service>
+
+        <service id="speicher210_fastbill.data_collector" class="Speicher210\FastbillBundle\DataCollector\FastbillDataCollector" public="false">
+            <argument type="service" id="speicher210_fastbill.api_credentials" />
+            <argument type="service" id="speicher210_fastbill.transport_collector"/>
+            <tag name="data_collector" template="@Speicher210Fastbill/Collector/speicher210_fastbill.html.twig" id="speicher210_fastbill" />
+        </service>
+    </services>
+</container>
