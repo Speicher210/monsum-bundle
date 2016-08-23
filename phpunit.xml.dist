@@ -14,7 +14,7 @@
         <server name="KERNEL_DIR" value="tests/app"/>
     </php>
     <testsuites>
-        <testsuite name="Speicher210 FastbillBundle Test Suite">
+        <testsuite name="Speicher210 MonsumBundle Test Suite">
             <directory>tests/Controller</directory>
         </testsuite>
     </testsuites>

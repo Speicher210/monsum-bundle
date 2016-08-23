@@ -1,4 +1,4 @@
-# Symfony Fastbill Automatic API bundle
+# Symfony Monsum Automatic API bundle
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -7,14 +7,14 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Symfony Bundle for FastBill Automatic API.
+Symfony Bundle for Monsum Automatic API.
 
 ## Install
 
 Via Composer
 
 ``` bash
-$ composer require speicher210/fastbill-bundle
+$ composer require speicher210/monsum-bundle
 ```
 
 ## Change log
@@ -44,17 +44,17 @@ If you discover any security related issues, please email instead of using the i
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/Speicher210/fastbill-bundle.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/Speicher210/monsum-bundle.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/Speicher210/fastbill-bundle/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/Speicher210/fastbill-bundle.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/Speicher210/fastbill-bundle.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/Speicher210/fastbill-bundle.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/Speicher210/monsum-bundle/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/Speicher210/monsum-bundle.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/Speicher210/monsum-bundle.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/Speicher210/monsum-bundle.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/Speicher210/fastbill-bundle
-[link-travis]: https://travis-ci.org/Speicher210/fastbill-bundle
-[link-scrutinizer]: https://scrutinizer-ci.com/g/Speicher210/fastbill-bundle/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/Speicher210/fastbill-bundle
-[link-downloads]: https://packagist.org/packages/Speicher210/fastbill-bundle
+[link-packagist]: https://packagist.org/packages/Speicher210/monsum-bundle
+[link-travis]: https://travis-ci.org/Speicher210/monsum-bundle
+[link-scrutinizer]: https://scrutinizer-ci.com/g/Speicher210/monsum-bundle/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/Speicher210/monsum-bundle
+[link-downloads]: https://packagist.org/packages/Speicher210/monsum-bundle
 [link-author]: https://github.com/dragosprotung
 [link-contributors]: ../../contributors

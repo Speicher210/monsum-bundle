@@ -18,7 +18,7 @@
     "country_code": "DE",
     "email": "m.muster@email.de",
     "phone": "+491234567",
-    "payment_data_url": "https://automatic.fastbill.com/accountdata/a1/payment_data_url",
-    "dashboard_url": "https://automatic.fastbill.com/dashboard/a1/dashboard_url"
+    "payment_data_url": "https://app.monsum.com/accountdata/a1/payment_data_url",
+    "dashboard_url": "https://app.monsum.com/dashboard/a1/dashboard_url"
   }
 }

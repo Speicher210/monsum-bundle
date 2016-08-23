@@ -46,8 +46,8 @@ class SubscriptionClosedActionControllerTest extends AbstractControllerTestCase
                             ->setCity('Musterhausen')
                             ->setCountryCode('DE')
                             ->setEmail('m.muster@email.de')
-                            ->setPaymentDataUrl('https://automatic.fastbill.com/accountdata/a1/payment_data_url')
-                            ->setDashboardUrl('https://automatic.fastbill.com/dashboard/a1/dashboard_url')
+                            ->setPaymentDataUrl('https://app.monsum.com/accountdata/a1/payment_data_url')
+                            ->setDashboardUrl('https://app.monsum.com/dashboard/a1/dashboard_url')
                     )
                     ->setSubscription(
                         (new Subscription())
