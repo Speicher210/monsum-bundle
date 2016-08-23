@@ -2,7 +2,7 @@
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\SerializerBundle\JMSSerializerBundle;
-use Speicher210\FastbillBundle\Speicher210FastbillBundle;
+use Speicher210\MonsumBundle\Speicher210MonsumBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
@@ -29,7 +29,7 @@ class AppKernel extends Kernel
     {
         return [
             new FrameworkBundle(),
-            new Speicher210FastbillBundle(),
+            new Speicher210MonsumBundle(),
             new JMSSerializerBundle(),
         ];
     }
@@ -47,7 +47,7 @@ class AppKernel extends Kernel
      */
     public function getCacheDir()
     {
-        return sys_get_temp_dir().'/Speicher210FastbillBundle/Cache/';
+        return sys_get_temp_dir().'/Speicher210MonsumBundle/Cache/';
     }
 
     /**
@@ -55,6 +55,6 @@ class AppKernel extends Kernel
      */
     public function getLogDir()
     {
-        return sys_get_temp_dir().'/Speicher210FastbillBundle/Log/';
+        return sys_get_temp_dir().'/Speicher210MonsumBundle/Log/';
     }
 }

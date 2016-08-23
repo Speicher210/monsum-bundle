@@ -1,16 +1,16 @@
 <?php
 
-namespace Speicher210\FastbillBundle\DataCollector;
+namespace Speicher210\MonsumBundle\DataCollector;
 
-use Speicher210\Fastbill\Api\ApiCredentials;
+use Speicher210\Monsum\Api\ApiCredentials;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 
 /**
- * Data collector for Fastbill API.
+ * Data collector for Monsum API.
  */
-class FastbillDataCollector extends DataCollector
+class MonsumDataCollector extends DataCollector
 {
     /**
      * The API credentials.
@@ -29,7 +29,7 @@ class FastbillDataCollector extends DataCollector
     /**
      * Constructor.
      *
-     * @param ApiCredentials $apiCredentials The Fastbill API credentials.
+     * @param ApiCredentials $apiCredentials The Monsum API credentials.
      * @param TransportCollector $transportCollector The transport collector.
      */
     public function __construct(ApiCredentials $apiCredentials, TransportCollector $transportCollector)
@@ -152,6 +152,6 @@ class FastbillDataCollector extends DataCollector
      */
     public function getName()
     {
-        return 'speicher210_fastbill';
+        return 'speicher210_monsum';
     }
 }

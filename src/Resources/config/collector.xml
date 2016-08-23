@@ -4,15 +4,15 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="speicher210_fastbill.transport_collector" class="Speicher210\FastbillBundle\DataCollector\TransportCollector" decorates="speicher210_fastbill.transport">
-            <argument type="service" id="speicher210_fastbill.transport_collector.inner" />
+        <service id="speicher210_monsum.transport_collector" class="Speicher210\MonsumBundle\DataCollector\TransportCollector" decorates="speicher210_monsum.transport">
+            <argument type="service" id="speicher210_monsum.transport_collector.inner" />
             <argument type="service" id="debug.stopwatch" />
         </service>
 
-        <service id="speicher210_fastbill.data_collector" class="Speicher210\FastbillBundle\DataCollector\FastbillDataCollector" public="false">
-            <argument type="service" id="speicher210_fastbill.api_credentials" />
-            <argument type="service" id="speicher210_fastbill.transport_collector"/>
-            <tag name="data_collector" template="@Speicher210Fastbill/Collector/speicher210_fastbill.html.twig" id="speicher210_fastbill" />
+        <service id="speicher210_monsum.data_collector" class="Speicher210\MonsumBundle\DataCollector\MonsumDataCollector" public="false">
+            <argument type="service" id="speicher210_monsum.api_credentials" />
+            <argument type="service" id="speicher210_monsum.transport_collector"/>
+            <tag name="data_collector" template="@Speicher210Monsum/Collector/speicher210_monsum.html.twig" id="speicher210_monsum" />
         </service>
     </services>
 </container>

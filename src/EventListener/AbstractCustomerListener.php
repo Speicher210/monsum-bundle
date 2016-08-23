@@ -1,15 +1,15 @@
 <?php
 
-namespace Speicher210\FastbillBundle\EventListener;
+namespace Speicher210\MonsumBundle\EventListener;
 
-use Speicher210\FastbillBundle\Event\CustomerChangedEvent;
-use Speicher210\FastbillBundle\Event\CustomerCreatedEvent;
-use Speicher210\FastbillBundle\Event\CustomerDeletedEvent;
-use Speicher210\FastbillBundle\FastbillNotificationEvents;
+use Speicher210\MonsumBundle\Event\CustomerChangedEvent;
+use Speicher210\MonsumBundle\Event\CustomerCreatedEvent;
+use Speicher210\MonsumBundle\Event\CustomerDeletedEvent;
+use Speicher210\MonsumBundle\MonsumNotificationEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * Event listener for incoming Fastbill customer notifications.
+ * Event listener for incoming Monsum customer notifications.
  */
 abstract class AbstractCustomerListener implements EventSubscriberInterface
 {
@@ -41,9 +41,9 @@ abstract class AbstractCustomerListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            FastbillNotificationEvents::INCOMING_CUSTOMER_CREATED => 'onCustomerCreated',
-            FastbillNotificationEvents::INCOMING_CUSTOMER_CHANGED => 'onCustomerChanged',
-            FastbillNotificationEvents::INCOMING_CUSTOMER_DELETED => 'onCustomerDeleted'
+            MonsumNotificationEvents::INCOMING_CUSTOMER_CREATED => 'onCustomerCreated',
+            MonsumNotificationEvents::INCOMING_CUSTOMER_CHANGED => 'onCustomerChanged',
+            MonsumNotificationEvents::INCOMING_CUSTOMER_DELETED => 'onCustomerDeleted'
         );
     }
 }

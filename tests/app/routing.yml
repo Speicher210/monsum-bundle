@@ -1,2 +1,2 @@
-fastbill_notification:
-  resource: "@Speicher210FastbillBundle/Resources/config/routing.yml"
+monsum_notification:
+  resource: "@Speicher210MonsumBundle/Resources/config/routing.yml"

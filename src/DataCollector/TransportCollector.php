@@ -1,9 +1,9 @@
 <?php
 
-namespace Speicher210\FastbillBundle\DataCollector;
+namespace Speicher210\MonsumBundle\DataCollector;
 
-use Speicher210\Fastbill\Api\ApiCredentials;
-use Speicher210\Fastbill\Api\Transport\TransportInterface;
+use Speicher210\Monsum\Api\ApiCredentials;
+use Speicher210\Monsum\Api\Transport\TransportInterface;
 use Symfony\Component\Stopwatch\Stopwatch;
 
 /**
@@ -67,7 +67,7 @@ class TransportCollector implements TransportInterface
      */
     public function sendRequest($body)
     {
-        $stopwatchId = uniqid('speicher210_fastbill.collector.transport.');
+        $stopwatchId = uniqid('speicher210_monsum.collector.transport.');
         $this->stopwatch->start($stopwatchId);
 
         $return = $this->service->sendRequest($body);

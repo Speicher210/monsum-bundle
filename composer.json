@@ -31,12 +31,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Speicher210\\FastbillBundle\\": "src"
+            "Speicher210\\MonsumBundle\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Speicher210\\FastbillBundle\\Test\\": "tests"
+            "Speicher210\\MonsumBundle\\Test\\": "tests"
         }
     },
     "extra": {

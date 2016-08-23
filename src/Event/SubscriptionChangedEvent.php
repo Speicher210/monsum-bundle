@@ -1,6 +1,6 @@
 <?php
 
-namespace Speicher210\FastbillBundle\Event;
+namespace Speicher210\MonsumBundle\Event;
 
 /**
  * Event when a subscription is changed.

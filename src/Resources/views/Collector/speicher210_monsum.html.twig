@@ -2,7 +2,7 @@
 
 {% block toolbar %}
     {% set icon %}
-        <span class="icon">{{ include('@Speicher210Fastbill/Collector/icon.svg') }}</span>
+        <span class="icon">{{ include('@Speicher210Monsum/Collector/icon.svg') }}</span>
         <span class="sf-toolbar-status">{{ collector.totalCalls }}</span>
         <span class="sf-toolbar-info-piece-additional-detail">in {{ collector.totalTime }} ms</span>
     {% endset %}
@@ -21,8 +21,8 @@
 
 {% block menu %}
     <span class="label">
-        <span class="icon">{{ include('@Speicher210Fastbill/Collector/icon.svg') }}</span>
-        <strong>Fastbill</strong>
+        <span class="icon">{{ include('@Speicher210Monsum/Collector/icon.svg') }}</span>
+        <strong>Monsum</strong>
         <span class="count">
             <span>{{ collector.totalCalls }}</span>
             <span>{{ collector.totalTime }} ms</span>

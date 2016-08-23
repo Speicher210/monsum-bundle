@@ -1,6 +1,6 @@
 <?php
 
-namespace Speicher210\FastbillBundle\DependencyInjection;
+namespace Speicher210\MonsumBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 /**
  * This is the class that loads and manages your bundle configuration
  */
-class Speicher210FastbillExtension extends Extension
+class Speicher210MonsumExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -28,7 +28,7 @@ class Speicher210FastbillExtension extends Extension
         }
 
         $container
-            ->getDefinition('speicher210_fastbill.api_credentials')
+            ->getDefinition('speicher210_monsum.api_credentials')
             ->addArgument($config['username'])
             ->addArgument($config['api_key'])
             ->addArgument($config['account_hash']);

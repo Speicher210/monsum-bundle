@@ -1,13 +1,13 @@
 <?php
 
-namespace Speicher210\FastbillBundle\Controller\Notification;
+namespace Speicher210\MonsumBundle\Controller\Notification;
 
-use Speicher210\Fastbill\Api\Model\Notification\Customer\CustomerChangedNotification;
-use Speicher210\Fastbill\Api\Model\Notification\Customer\CustomerCreatedNotification;
-use Speicher210\Fastbill\Api\Model\Notification\Customer\CustomerDeletedNotification;
-use Speicher210\FastbillBundle\Event\CustomerChangedEvent;
-use Speicher210\FastbillBundle\Event\CustomerCreatedEvent;
-use Speicher210\FastbillBundle\Event\CustomerDeletedEvent;
+use Speicher210\Monsum\Api\Model\Notification\Customer\CustomerChangedNotification;
+use Speicher210\Monsum\Api\Model\Notification\Customer\CustomerCreatedNotification;
+use Speicher210\Monsum\Api\Model\Notification\Customer\CustomerDeletedNotification;
+use Speicher210\MonsumBundle\Event\CustomerChangedEvent;
+use Speicher210\MonsumBundle\Event\CustomerCreatedEvent;
+use Speicher210\MonsumBundle\Event\CustomerDeletedEvent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 

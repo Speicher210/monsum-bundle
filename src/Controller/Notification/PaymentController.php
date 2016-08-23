@@ -1,15 +1,15 @@
 <?php
 
-namespace Speicher210\FastbillBundle\Controller\Notification;
+namespace Speicher210\MonsumBundle\Controller\Notification;
 
-use Speicher210\Fastbill\Api\Model\Notification\Payment\PaymentChargebackNotification;
-use Speicher210\Fastbill\Api\Model\Notification\Payment\PaymentCreatedNotification;
-use Speicher210\Fastbill\Api\Model\Notification\Payment\PaymentFailedNotification;
-use Speicher210\Fastbill\Api\Model\Notification\Payment\PaymentRefundedNotification;
-use Speicher210\FastbillBundle\Event\PaymentChargebackEvent;
-use Speicher210\FastbillBundle\Event\PaymentCreatedEvent;
-use Speicher210\FastbillBundle\Event\PaymentFailedEvent;
-use Speicher210\FastbillBundle\Event\PaymentRefundedEvent;
+use Speicher210\Monsum\Api\Model\Notification\Payment\PaymentChargebackNotification;
+use Speicher210\Monsum\Api\Model\Notification\Payment\PaymentCreatedNotification;
+use Speicher210\Monsum\Api\Model\Notification\Payment\PaymentFailedNotification;
+use Speicher210\Monsum\Api\Model\Notification\Payment\PaymentRefundedNotification;
+use Speicher210\MonsumBundle\Event\PaymentChargebackEvent;
+use Speicher210\MonsumBundle\Event\PaymentCreatedEvent;
+use Speicher210\MonsumBundle\Event\PaymentFailedEvent;
+use Speicher210\MonsumBundle\Event\PaymentRefundedEvent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 

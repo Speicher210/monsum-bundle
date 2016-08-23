@@ -1,12 +1,12 @@
 <?php
 
-namespace Speicher210\FastbillBundle\Test\Controller\CustomerController\CreatedAction;
+namespace Speicher210\MonsumBundle\Test\Controller\CustomerController\CreatedAction;
 
-use Speicher210\Fastbill\Api\Model\Notification\Customer\Customer;
-use Speicher210\Fastbill\Api\Model\Notification\Customer\CustomerCreatedNotification;
-use Speicher210\FastbillBundle\Event\CustomerCreatedEvent;
-use Speicher210\FastbillBundle\FastbillNotificationEvents;
-use Speicher210\FastbillBundle\Test\Controller\AbstractControllerTestCase;
+use Speicher210\Monsum\Api\Model\Notification\Customer\Customer;
+use Speicher210\Monsum\Api\Model\Notification\Customer\CustomerCreatedNotification;
+use Speicher210\MonsumBundle\Event\CustomerCreatedEvent;
+use Speicher210\MonsumBundle\MonsumNotificationEvents;
+use Speicher210\MonsumBundle\Test\Controller\AbstractControllerTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -19,10 +19,10 @@ class CustomerCreatedActionControllerTest extends AbstractControllerTestCase
         $client = parent::createClient();
 
         $mock = $this->getMock('stdClass', array('eventHandlerCallback'));
-        $mock->expects($this->once())->method('eventHandlerCallback')->with(
-            $this->callback(function (CustomerCreatedEvent $event) {
+        $mock->expects(static::once())->method('eventHandlerCallback')->with(
+            static::callback(function (CustomerCreatedEvent $event) {
                 $payloadData = $event->getPayloadData();
-                $this->assertNotNull($payloadData);
+                static::assertNotNull($payloadData);
 
                 $expectedPayloadData = new CustomerCreatedNotification();
                 $expectedPayloadData
@@ -49,7 +49,7 @@ class CustomerCreatedActionControllerTest extends AbstractControllerTestCase
                             ->setDashboardUrl('https://automatic.fastbill.com/dashboard/a1/dashboard_url')
                     );
 
-                $this->assertEquals($expectedPayloadData, $payloadData);
+                static::assertEquals($expectedPayloadData, $payloadData);
 
                 return true;
             })
@@ -57,11 +57,11 @@ class CustomerCreatedActionControllerTest extends AbstractControllerTestCase
         $client
             ->getContainer()
             ->get('event_dispatcher')
-            ->addListener(FastbillNotificationEvents::INCOMING_CUSTOMER_CREATED, array($mock, 'eventHandlerCallback'));
+            ->addListener(MonsumNotificationEvents::INCOMING_CUSTOMER_CREATED, array($mock, 'eventHandlerCallback'));
 
         $data = file_get_contents(__DIR__ . '/Fixtures/' . $this->getName() . '.json');
-        $client = $this->makeRequest('speicher210_fastbill_notification_customer_created', $data, $client);
+        $client = $this->makeRequest('speicher210_monsum_notification_customer_created', $data, $client);
 
-        $this->assertSame(Response::HTTP_NO_CONTENT, $client->getResponse()->getStatusCode());
+        static::assertSame(Response::HTTP_NO_CONTENT, $client->getResponse()->getStatusCode());
     }
 }

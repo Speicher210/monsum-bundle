@@ -1,17 +1,17 @@
 <?php
 
-namespace Speicher210\FastbillBundle\EventListener;
+namespace Speicher210\MonsumBundle\EventListener;
 
-use Speicher210\FastbillBundle\Event\SubscriptionCanceledEvent;
-use Speicher210\FastbillBundle\Event\SubscriptionChangedEvent;
-use Speicher210\FastbillBundle\Event\SubscriptionClosedEvent;
-use Speicher210\FastbillBundle\Event\SubscriptionCreatedEvent;
-use Speicher210\FastbillBundle\Event\SubscriptionReactivatedEvent;
-use Speicher210\FastbillBundle\FastbillNotificationEvents;
+use Speicher210\MonsumBundle\Event\SubscriptionCanceledEvent;
+use Speicher210\MonsumBundle\Event\SubscriptionChangedEvent;
+use Speicher210\MonsumBundle\Event\SubscriptionClosedEvent;
+use Speicher210\MonsumBundle\Event\SubscriptionCreatedEvent;
+use Speicher210\MonsumBundle\Event\SubscriptionReactivatedEvent;
+use Speicher210\MonsumBundle\MonsumNotificationEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * Event listener for incoming Fastbill subscription notifications.
+ * Event listener for incoming Monsum subscription notifications.
  */
 abstract class AbstractSubscriptionListener implements EventSubscriberInterface
 {
@@ -56,11 +56,11 @@ abstract class AbstractSubscriptionListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            FastbillNotificationEvents::INCOMING_SUBSCRIPTION_CREATED => 'onSubscriptionCreated',
-            FastbillNotificationEvents::INCOMING_SUBSCRIPTION_CHANGED => 'onSubscriptionChanged',
-            FastbillNotificationEvents::INCOMING_SUBSCRIPTION_CANCELED => 'onSubscriptionCanceled',
-            FastbillNotificationEvents::INCOMING_SUBSCRIPTION_CLOSED => 'onSubscriptionClosed',
-            FastbillNotificationEvents::INCOMING_SUBSCRIPTION_REACTIVATED => 'onSubscriptionReactivated'
+            MonsumNotificationEvents::INCOMING_SUBSCRIPTION_CREATED => 'onSubscriptionCreated',
+            MonsumNotificationEvents::INCOMING_SUBSCRIPTION_CHANGED => 'onSubscriptionChanged',
+            MonsumNotificationEvents::INCOMING_SUBSCRIPTION_CANCELED => 'onSubscriptionCanceled',
+            MonsumNotificationEvents::INCOMING_SUBSCRIPTION_CLOSED => 'onSubscriptionClosed',
+            MonsumNotificationEvents::INCOMING_SUBSCRIPTION_REACTIVATED => 'onSubscriptionReactivated'
         );
     }
 }

@@ -1,17 +1,17 @@
 <?php
 
-namespace Speicher210\FastbillBundle\Event;
+namespace Speicher210\MonsumBundle\Event;
 
-use Speicher210\Fastbill\Api\Model\Notification\NotificationPayloadInterface;
+use Speicher210\Monsum\Api\Model\Notification\NotificationPayloadInterface;
 
 /**
- * Interface for Fastbill incoming notification events.
+ * Interface for Monsum incoming notification events.
  */
 interface NotificationEventInterface
 {
 
     /**
-     * Get the type of the Fastbill notification.
+     * Get the type of the Monsum notification.
      *
      * @return string
      */

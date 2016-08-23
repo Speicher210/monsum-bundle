@@ -1,8 +1,8 @@
 <?php
 
-namespace Speicher210\FastbillBundle\Command;
+namespace Speicher210\MonsumBundle\Command;
 
-use Speicher210\Fastbill\Api\Service\Customer\Get\RequestData;
+use Speicher210\Monsum\Api\Service\Customer\Get\RequestData;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
@@ -20,9 +20,9 @@ class CustomerCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('sp210:fastbill:customer')
+            ->setName('sp210:monsum:customer')
             ->setDescription('List information about the customers.')
-            ->addOption('id', null, InputOption::VALUE_REQUIRED, 'Optional Fastbill customer ID')
+            ->addOption('id', null, InputOption::VALUE_REQUIRED, 'Optional Monsum customer ID')
             ->addOption('ext-id', null, InputOption::VALUE_REQUIRED, 'Optional external ID');
     }
 
@@ -31,8 +31,8 @@ class CustomerCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        /** @var \Speicher210\Fastbill\Api\Service\Customer\CustomerService $customerService */
-        $customerService = $this->getContainer()->get('speicher210_fastbill.service.customer');
+        /** @var \Speicher210\Monsum\Api\Service\Customer\CustomerService $customerService */
+        $customerService = $this->getContainer()->get('speicher210_monsum.service.customer');
 
         $requestData = new RequestData();
         $requestData->setCustomerId($input->getOption('id'));

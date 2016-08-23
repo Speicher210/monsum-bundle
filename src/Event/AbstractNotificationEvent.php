@@ -1,8 +1,8 @@
 <?php
 
-namespace Speicher210\FastbillBundle\Event;
+namespace Speicher210\MonsumBundle\Event;
 
-use Speicher210\Fastbill\Api\Model\Notification\NotificationPayloadInterface;
+use Speicher210\Monsum\Api\Model\Notification\NotificationPayloadInterface;
 use Symfony\Component\EventDispatcher\Event;
 
 /**

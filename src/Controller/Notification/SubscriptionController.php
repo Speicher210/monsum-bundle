@@ -1,17 +1,17 @@
 <?php
 
-namespace Speicher210\FastbillBundle\Controller\Notification;
+namespace Speicher210\MonsumBundle\Controller\Notification;
 
-use Speicher210\Fastbill\Api\Model\Notification\Subscription\SubscriptionCanceledNotification;
-use Speicher210\Fastbill\Api\Model\Notification\Subscription\SubscriptionChangedNotification;
-use Speicher210\Fastbill\Api\Model\Notification\Subscription\SubscriptionClosedNotification;
-use Speicher210\Fastbill\Api\Model\Notification\Subscription\SubscriptionCreatedNotification;
-use Speicher210\Fastbill\Api\Model\Notification\Subscription\SubscriptionReactivatedNotification;
-use Speicher210\FastbillBundle\Event\SubscriptionCanceledEvent;
-use Speicher210\FastbillBundle\Event\SubscriptionChangedEvent;
-use Speicher210\FastbillBundle\Event\SubscriptionClosedEvent;
-use Speicher210\FastbillBundle\Event\SubscriptionCreatedEvent;
-use Speicher210\FastbillBundle\Event\SubscriptionReactivatedEvent;
+use Speicher210\Monsum\Api\Model\Notification\Subscription\SubscriptionCanceledNotification;
+use Speicher210\Monsum\Api\Model\Notification\Subscription\SubscriptionChangedNotification;
+use Speicher210\Monsum\Api\Model\Notification\Subscription\SubscriptionClosedNotification;
+use Speicher210\Monsum\Api\Model\Notification\Subscription\SubscriptionCreatedNotification;
+use Speicher210\Monsum\Api\Model\Notification\Subscription\SubscriptionReactivatedNotification;
+use Speicher210\MonsumBundle\Event\SubscriptionCanceledEvent;
+use Speicher210\MonsumBundle\Event\SubscriptionChangedEvent;
+use Speicher210\MonsumBundle\Event\SubscriptionClosedEvent;
+use Speicher210\MonsumBundle\Event\SubscriptionCreatedEvent;
+use Speicher210\MonsumBundle\Event\SubscriptionReactivatedEvent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 

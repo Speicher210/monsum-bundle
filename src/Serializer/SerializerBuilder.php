@@ -1,6 +1,6 @@
 <?php
 
-namespace Speicher210\FastbillBundle\Serializer;
+namespace Speicher210\MonsumBundle\Serializer;
 
 use JMS\Serializer\Handler\HandlerRegistry;
 use JMS\Serializer\Handler\SubscribingHandlerInterface;

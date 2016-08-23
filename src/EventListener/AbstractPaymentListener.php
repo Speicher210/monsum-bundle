@@ -1,16 +1,16 @@
 <?php
 
-namespace Speicher210\FastbillBundle\EventListener;
+namespace Speicher210\MonsumBundle\EventListener;
 
-use Speicher210\FastbillBundle\Event\PaymentChargebackEvent;
-use Speicher210\FastbillBundle\Event\PaymentCreatedEvent;
-use Speicher210\FastbillBundle\Event\PaymentFailedEvent;
-use Speicher210\FastbillBundle\Event\PaymentRefundedEvent;
-use Speicher210\FastbillBundle\FastbillNotificationEvents;
+use Speicher210\MonsumBundle\Event\PaymentChargebackEvent;
+use Speicher210\MonsumBundle\Event\PaymentCreatedEvent;
+use Speicher210\MonsumBundle\Event\PaymentFailedEvent;
+use Speicher210\MonsumBundle\Event\PaymentRefundedEvent;
+use Speicher210\MonsumBundle\MonsumNotificationEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * Event listener for incoming Fastbill payment notifications.
+ * Event listener for incoming Monsum payment notifications.
  */
 abstract class AbstractPaymentListener implements EventSubscriberInterface
 {
@@ -49,10 +49,10 @@ abstract class AbstractPaymentListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            FastbillNotificationEvents::INCOMING_PAYMENT_CREATED => 'onPaymentCreated',
-            FastbillNotificationEvents::INCOMING_PAYMENT_CHARGEBACK => 'onPaymentChargeback',
-            FastbillNotificationEvents::INCOMING_PAYMENT_FAILED => 'onPaymentFailed',
-            FastbillNotificationEvents::INCOMING_PAYMENT_REFUNDED => 'onPaymentRefundedEvent'
+            MonsumNotificationEvents::INCOMING_PAYMENT_CREATED => 'onPaymentCreated',
+            MonsumNotificationEvents::INCOMING_PAYMENT_CHARGEBACK => 'onPaymentChargeback',
+            MonsumNotificationEvents::INCOMING_PAYMENT_FAILED => 'onPaymentFailed',
+            MonsumNotificationEvents::INCOMING_PAYMENT_REFUNDED => 'onPaymentRefundedEvent'
         );
     }
 }

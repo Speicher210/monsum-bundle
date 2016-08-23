@@ -1,6 +1,6 @@
 <?php
 
-namespace Speicher210\FastbillBundle\Test\Controller;
+namespace Speicher210\MonsumBundle\Test\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;

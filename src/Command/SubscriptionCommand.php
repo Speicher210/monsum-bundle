@@ -1,6 +1,6 @@
 <?php
 
-namespace Speicher210\FastbillBundle\Command;
+namespace Speicher210\MonsumBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Helper\Table;
@@ -19,9 +19,9 @@ class SubscriptionCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('sp210:fastbill:subscription')
+            ->setName('sp210:monsum:subscription')
             ->setDescription('List information about the subscriptions.')
-            ->addOption('customer-id', null, InputOption::VALUE_REQUIRED, 'Optional Fastbill customer ID')
+            ->addOption('customer-id', null, InputOption::VALUE_REQUIRED, 'Optional Monsum customer ID')
             ->addOption('customer-ext-id', null, InputOption::VALUE_REQUIRED, 'Optional customer external ID')
             ->addOption('subscription-id', null, InputOption::VALUE_REQUIRED, 'Optional subscription ID')
             ->addOption('subscription-ext-id', null, InputOption::VALUE_REQUIRED, 'Optional subscription external ID');
@@ -32,8 +32,8 @@ class SubscriptionCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        /** @var \Speicher210\Fastbill\Api\Service\Subscription\SubscriptionService $subscriptionService */
-        $subscriptionService = $this->getContainer()->get('speicher210_fastbill.service.subscription');
+        /** @var \Speicher210\Monsum\Api\Service\Subscription\SubscriptionService $subscriptionService */
+        $subscriptionService = $this->getContainer()->get('speicher210_monsum.service.subscription');
 
         $apiResponse = $subscriptionService->getSubscriptions(
             $input->getOption('customer-id'),

@@ -1,9 +1,9 @@
 <?php
 
-namespace Speicher210\FastbillBundle\Controller\Notification;
+namespace Speicher210\MonsumBundle\Controller\Notification;
 
-use Speicher210\Fastbill\Api\Model\Notification\NotificationPayloadInterface;
-use Speicher210\FastbillBundle\Event\NotificationEventInterface;
+use Speicher210\Monsum\Api\Model\Notification\NotificationPayloadInterface;
+use Speicher210\MonsumBundle\Event\NotificationEventInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,7 +34,7 @@ abstract class AbstractController extends Controller
 
         $event->setPayloadData($payloadData);
 
-        $eventName = 'speicher210_fastbill.notification.incoming.' . $event->getNotificationType();
+        $eventName = 'speicher210_monsum.notification.incoming.' . $event->getNotificationType();
         $this->get('event_dispatcher')->dispatch($eventName, $event);
 
         if ($event->isPropagationStopped()) {
@@ -59,7 +59,7 @@ abstract class AbstractController extends Controller
 
         try {
             return $this
-                ->get('speicher210_fastbill.serializer')
+                ->get('speicher210_monsum.serializer')
                 ->deserialize(
                     $request->getContent(),
                     $payloadDataClass,

@@ -5,16 +5,16 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="speicher210_fastbill.api_credentials" class="Speicher210\Fastbill\Api\ApiCredentials"/>
-        <service id="speicher210_fastbill.transport" class="Speicher210\Fastbill\Api\Transport\GuzzleTransport">
-            <argument type="service" id="speicher210_fastbill.api_credentials"/>
+        <service id="speicher210_monsum.api_credentials" class="Speicher210\Monsum\Api\ApiCredentials"/>
+        <service id="speicher210_monsum.transport" class="Speicher210\Monsum\Api\Transport\GuzzleTransport">
+            <argument type="service" id="speicher210_monsum.api_credentials"/>
         </service>
-        <service id="speicher210_fastbill.serializer" class="JMS\Serializer\Serializer">
+        <service id="speicher210_monsum.serializer" class="JMS\Serializer\Serializer">
             <factory method="build">
-                <service class="Speicher210\FastbillBundle\Serializer\SerializerBuilder">
+                <service class="Speicher210\MonsumBundle\Serializer\SerializerBuilder">
                     <call method="addHandler">
                         <argument type="service">
-                            <service class="Speicher210\Fastbill\Api\Serializer\Handler\DateHandler"/>
+                            <service class="Speicher210\Monsum\Api\Serializer\Handler\DateHandler"/>
                         </argument>
                     </call>
                     <call method="create"/>
@@ -22,25 +22,25 @@
             </factory>
         </service>
 
-        <service id="speicher210_fastbill.service.abstract" class="Speicher210\Fastbill\Api\AbstractService" abstract="true" public="false">
-            <argument type="service" id="speicher210_fastbill.transport"/>
-            <argument type="service" id="speicher210_fastbill.serializer"/>
+        <service id="speicher210_monsum.service.abstract" class="Speicher210\Monsum\Api\AbstractService" abstract="true" public="false">
+            <argument type="service" id="speicher210_monsum.transport"/>
+            <argument type="service" id="speicher210_monsum.serializer"/>
         </service>
 
-        <service id="speicher210_fastbill.service.customer" parent="speicher210_fastbill.service.abstract" public="true"
-                 class="Speicher210\Fastbill\Api\Service\Customer\CustomerService">
+        <service id="speicher210_monsum.service.customer" parent="speicher210_monsum.service.abstract" public="true"
+                 class="Speicher210\Monsum\Api\Service\Customer\CustomerService">
         </service>
-        <service id="speicher210_fastbill.service.subscription" parent="speicher210_fastbill.service.abstract"
-                 public="true" class="Speicher210\Fastbill\Api\Service\Subscription\SubscriptionService">
+        <service id="speicher210_monsum.service.subscription" parent="speicher210_monsum.service.abstract"
+                 public="true" class="Speicher210\Monsum\Api\Service\Subscription\SubscriptionService">
         </service>
-        <service id="speicher210_fastbill.service.article" parent="speicher210_fastbill.service.abstract" public="true"
-                 class="Speicher210\Fastbill\Api\Service\Article\ArticleService">
+        <service id="speicher210_monsum.service.article" parent="speicher210_monsum.service.abstract" public="true"
+                 class="Speicher210\Monsum\Api\Service\Article\ArticleService">
         </service>
-        <service id="speicher210_fastbill.service.coupon" parent="speicher210_fastbill.service.abstract" public="true"
-                 class="Speicher210\Fastbill\Api\Service\Coupon\CouponService">
+        <service id="speicher210_monsum.service.coupon" parent="speicher210_monsum.service.abstract" public="true"
+                 class="Speicher210\Monsum\Api\Service\Coupon\CouponService">
         </service>
-        <service id="speicher210_fastbill.service.invoice" parent="speicher210_fastbill.service.abstract" public="true"
-                 class="Speicher210\Fastbill\Api\Service\Invoice\InvoiceService">
+        <service id="speicher210_monsum.service.invoice" parent="speicher210_monsum.service.abstract" public="true"
+                 class="Speicher210\Monsum\Api\Service\Invoice\InvoiceService">
         </service>
     </services>
 </container>

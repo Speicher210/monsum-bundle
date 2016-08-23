@@ -1,8 +1,8 @@
 <?php
 
-namespace Speicher210\FastbillBundle\Test\Controller\AbstractController;
+namespace Speicher210\MonsumBundle\Test\Controller\AbstractController;
 
-use Speicher210\FastbillBundle\Test\Controller\AbstractControllerTestCase;
+use Speicher210\MonsumBundle\Test\Controller\AbstractControllerTestCase;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\UnsupportedMediaTypeHttpException;
@@ -18,12 +18,12 @@ class AbstractControllerTest extends AbstractControllerTestCase
 
         $client = parent::createClient();
         $url = $client->getContainer()->get('router')->generate(
-            'speicher210_fastbill_notification_subscription_created'
+            'speicher210_monsum_notification_subscription_created'
         );
 
         $client->request('POST', $url, array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded'));
 
-        $this->assertSame(Response::HTTP_UNSUPPORTED_MEDIA_TYPE, $client->getResponse()->getStatusCode());
+        static::assertSame(Response::HTTP_UNSUPPORTED_MEDIA_TYPE, $client->getResponse()->getStatusCode());
     }
 
     public function testCreatedActionReturns400IfDataIsNotValidJSON()
@@ -33,8 +33,8 @@ class AbstractControllerTest extends AbstractControllerTestCase
             'Invalid hook payload.'
         );
 
-        $client = $this->makeRequest('speicher210_fastbill_notification_subscription_created', 'bad json');
-        $this->assertSame(Response::HTTP_BAD_REQUEST, $client->getResponse()->getStatusCode());
+        $client = $this->makeRequest('speicher210_monsum_notification_subscription_created', 'bad json');
+        static::assertSame(Response::HTTP_BAD_REQUEST, $client->getResponse()->getStatusCode());
     }
 
     public function testCreatedActionReturns400IfNotificationTypeIsWrong()
@@ -45,8 +45,8 @@ class AbstractControllerTest extends AbstractControllerTestCase
         );
 
         $data = json_encode(array('type' => 'unknown.type'));
-        $client = $this->makeRequest('speicher210_fastbill_notification_subscription_created', $data);
+        $client = $this->makeRequest('speicher210_monsum_notification_subscription_created', $data);
 
-        $this->assertSame(Response::HTTP_BAD_REQUEST, $client->getResponse()->getStatusCode());
+        static::assertSame(Response::HTTP_BAD_REQUEST, $client->getResponse()->getStatusCode());
     }
 }

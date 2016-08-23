@@ -1,8 +1,8 @@
 <?php
 
-namespace Speicher210\FastbillBundle\Command;
+namespace Speicher210\MonsumBundle\Command;
 
-use Speicher210\Fastbill\Api\Service\Customer\Get\RequestData;
+use Speicher210\Monsum\Api\Service\Customer\Get\RequestData;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -10,7 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 
 /**
- * Command to reset the Fastbill account.
+ * Command to reset the Monsum account.
  */
 class ResetAccountCommand extends ContainerAwareCommand
 {
@@ -34,8 +34,8 @@ class ResetAccountCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('sp210:fastbill:reset')
-            ->setDescription('Reset (delete) the data from the Fastbill account')
+            ->setName('sp210:monsum:reset')
+            ->setDescription('Reset (delete) the data from the Monsum account')
             ->addOption(
                 'reset-customers',
                 null,
@@ -80,7 +80,7 @@ class ResetAccountCommand extends ContainerAwareCommand
         if ($noInteraction !== true) {
             $helper = $this->getHelper('question');
             $question = new ConfirmationQuestion(
-                '<question>Are you sure you want to reset the Fastbill data?</question> [N]: ',
+                '<question>Are you sure you want to reset the Monsum data?</question> [N]: ',
                 false
             );
 
@@ -101,8 +101,8 @@ class ResetAccountCommand extends ContainerAwareCommand
      */
     protected function resetCustomers()
     {
-        /** @var \Speicher210\Fastbill\Api\Service\Customer\CustomerService $customerService */
-        $customerService = $this->getContainer()->get('speicher210_fastbill.service.customer');
+        /** @var \Speicher210\Monsum\Api\Service\Customer\CustomerService $customerService */
+        $customerService = $this->getContainer()->get('speicher210_monsum.service.customer');
         $requestData = new RequestData();
         $requestData->setCustomerId($this->input->getOption('id'));
         $requestData->setCustomerExternalUid($this->input->getOption('ext-id'));

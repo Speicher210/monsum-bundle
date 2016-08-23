@@ -1,14 +1,14 @@
 <?php
 
-namespace Speicher210\FastbillBundle\Test\Controller\PaymentController\FailedAction;
+namespace Speicher210\MonsumBundle\Test\Controller\PaymentController\FailedAction;
 
-use Speicher210\Fastbill\Api\Model\Notification\Customer\Customer;
-use Speicher210\Fastbill\Api\Model\Notification\Payment\Payment;
-use Speicher210\Fastbill\Api\Model\Notification\Payment\PaymentFailedNotification;
-use Speicher210\Fastbill\Api\Model\Notification\Payment\PaymentSubscription;
-use Speicher210\FastbillBundle\Event\PaymentFailedEvent;
-use Speicher210\FastbillBundle\FastbillNotificationEvents;
-use Speicher210\FastbillBundle\Test\Controller\AbstractControllerTestCase;
+use Speicher210\Monsum\Api\Model\Notification\Customer\Customer;
+use Speicher210\Monsum\Api\Model\Notification\Payment\Payment;
+use Speicher210\Monsum\Api\Model\Notification\Payment\PaymentFailedNotification;
+use Speicher210\Monsum\Api\Model\Notification\Payment\PaymentSubscription;
+use Speicher210\MonsumBundle\Event\PaymentFailedEvent;
+use Speicher210\MonsumBundle\MonsumNotificationEvents;
+use Speicher210\MonsumBundle\Test\Controller\AbstractControllerTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -21,10 +21,10 @@ class PaymentFailedActionControllerTest extends AbstractControllerTestCase
         $client = parent::createClient();
 
         $mock = $this->getMock('stdClass', array('eventHandlerCallback'));
-        $mock->expects($this->once())->method('eventHandlerCallback')->with(
-            $this->callback(function (PaymentFailedEvent $event) {
+        $mock->expects(static::once())->method('eventHandlerCallback')->with(
+            static::callback(function (PaymentFailedEvent $event) {
                 $payloadData = $event->getPayloadData();
-                $this->assertNotNull($payloadData);
+                static::assertNotNull($payloadData);
 
                 $expectedPayloadData = new PaymentFailedNotification();
                 $expectedPayloadData
@@ -75,7 +75,7 @@ class PaymentFailedActionControllerTest extends AbstractControllerTestCase
                             ->setCreated(new \DateTime('2014-03-06T00:00:00+0000'))
                     );
 
-                $this->assertEquals($expectedPayloadData, $payloadData);
+                static::assertEquals($expectedPayloadData, $payloadData);
 
                 return true;
             })
@@ -83,11 +83,11 @@ class PaymentFailedActionControllerTest extends AbstractControllerTestCase
         $client
             ->getContainer()
             ->get('event_dispatcher')
-            ->addListener(FastbillNotificationEvents::INCOMING_PAYMENT_FAILED, array($mock, 'eventHandlerCallback'));
+            ->addListener(MonsumNotificationEvents::INCOMING_PAYMENT_FAILED, array($mock, 'eventHandlerCallback'));
 
         $data = file_get_contents(__DIR__ . '/Fixtures/' . $this->getName() . '.json');
-        $client = $this->makeRequest('speicher210_fastbill_notification_payment_failed', $data, $client);
+        $client = $this->makeRequest('speicher210_monsum_notification_payment_failed', $data, $client);
 
-        $this->assertSame(Response::HTTP_NO_CONTENT, $client->getResponse()->getStatusCode());
+        static::assertSame(Response::HTTP_NO_CONTENT, $client->getResponse()->getStatusCode());
     }
 }
