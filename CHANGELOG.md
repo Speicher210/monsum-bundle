@@ -2,6 +2,12 @@
 
 All Notable changes to `speicher210/monsum-bundle` will be documented in this file.
 
+## [1.0.1] - 2016-08-24
+
+### Fixed
+
+- Bumped the minimum monsum-api version to 1.0.1 (fixes and issue with article checkout URL).
+
 ## [1.0.0] 2016-08-23
 
 ### Added
