@@ -19,7 +19,7 @@ class SubscriptionCanceledActionControllerTest extends AbstractControllerTestCas
     {
         $client = parent::createClient();
 
-        $mock = $this->getMock('stdClass', array('eventHandlerCallback'));
+        $mock = $this->createPartialMock('stdClass', array('eventHandlerCallback'));
         $mock->expects(static::once())->method('eventHandlerCallback')->with(
             static::callback(function (SubscriptionCanceledEvent $event) {
                 $payloadData = $event->getPayloadData();

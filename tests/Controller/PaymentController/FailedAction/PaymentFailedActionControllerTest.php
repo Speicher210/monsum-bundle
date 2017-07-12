@@ -20,7 +20,7 @@ class PaymentFailedActionControllerTest extends AbstractControllerTestCase
     {
         $client = parent::createClient();
 
-        $mock = $this->getMock('stdClass', array('eventHandlerCallback'));
+        $mock = $this->createPartialMock('stdClass', array('eventHandlerCallback'));
         $mock->expects(static::once())->method('eventHandlerCallback')->with(
             static::callback(function (PaymentFailedEvent $event) {
                 $payloadData = $event->getPayloadData();

@@ -2,6 +2,16 @@
 
 All Notable changes to `speicher210/monsum-bundle` will be documented in this file.
 
+## [1.0.3] - 2017-xx-xx
+
+### Added
+
+- support for PHP 7.1
+
+### Removed
+
+- dropped PHP 5.5 support
+
 ## [1.0.2] - 2016-09-14
 
 ### Fixed
