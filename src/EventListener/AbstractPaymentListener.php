@@ -48,11 +48,11 @@ abstract class AbstractPaymentListener implements EventSubscriberInterface
      */
     public static function getSubscribedEvents()
     {
-        return array(
+        return [
             MonsumNotificationEvents::INCOMING_PAYMENT_CREATED => 'onPaymentCreated',
             MonsumNotificationEvents::INCOMING_PAYMENT_CHARGEBACK => 'onPaymentChargeback',
             MonsumNotificationEvents::INCOMING_PAYMENT_FAILED => 'onPaymentFailed',
             MonsumNotificationEvents::INCOMING_PAYMENT_REFUNDED => 'onPaymentRefundedEvent'
-        );
+        ];
     }
 }

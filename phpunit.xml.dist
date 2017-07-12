@@ -11,7 +11,7 @@
          stopOnFailure="false">
 
     <php>
-        <server name="KERNEL_DIR" value="tests/app"/>
+        <server name="KERNEL_CLASS" value="Speicher210\MonsumBundle\Test\app\AppKernel"/>
     </php>
     <testsuites>
         <testsuite name="Speicher210 MonsumBundle Test Suite">

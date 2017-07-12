@@ -1,5 +1,7 @@
 <?php
 
+namespace Speicher210\MonsumBundle\Test\app;
+
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\SerializerBundle\JMSSerializerBundle;
 use Speicher210\MonsumBundle\Speicher210MonsumBundle;
@@ -39,7 +41,7 @@ class AppKernel extends Kernel
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(dirname(__FILE__).'/config.yml');
+        $loader->load(__DIR__ . '/config.yml');
     }
 
     /**
@@ -47,7 +49,7 @@ class AppKernel extends Kernel
      */
     public function getCacheDir()
     {
-        return sys_get_temp_dir().'/Speicher210MonsumBundle/Cache/';
+        return sys_get_temp_dir() . '/Speicher210MonsumBundle/Cache/';
     }
 
     /**
@@ -55,6 +57,6 @@ class AppKernel extends Kernel
      */
     public function getLogDir()
     {
-        return sys_get_temp_dir().'/Speicher210MonsumBundle/Log/';
+        return sys_get_temp_dir() . '/Speicher210MonsumBundle/Log/';
     }
 }

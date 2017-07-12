@@ -19,7 +19,7 @@ class SubscriptionCanceledActionControllerTest extends AbstractControllerTestCas
     {
         $client = parent::createClient();
 
-        $mock = $this->createPartialMock('stdClass', array('eventHandlerCallback'));
+        $mock = $this->createPartialMock('stdClass', ['eventHandlerCallback']);
         $mock->expects(static::once())->method('eventHandlerCallback')->with(
             static::callback(function (SubscriptionCanceledEvent $event) {
                 $payloadData = $event->getPayloadData();
@@ -71,7 +71,7 @@ class SubscriptionCanceledActionControllerTest extends AbstractControllerTestCas
         $client
             ->getContainer()
             ->get('event_dispatcher')
-            ->addListener(MonsumNotificationEvents::INCOMING_SUBSCRIPTION_CANCELED, array($mock, 'eventHandlerCallback'));
+            ->addListener(MonsumNotificationEvents::INCOMING_SUBSCRIPTION_CANCELED, [$mock, 'eventHandlerCallback']);
 
         $data = file_get_contents(__DIR__ . '/Fixtures/' . $this->getName() . '.json');
         $client = $this->makeRequest('speicher210_monsum_notification_subscription_canceled', $data, $client);

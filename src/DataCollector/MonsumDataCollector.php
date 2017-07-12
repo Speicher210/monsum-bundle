@@ -43,10 +43,10 @@ class MonsumDataCollector extends DataCollector
      */
     public function collect(Request $request, Response $response, \Exception $exception = null)
     {
-        $this->data = array(
+        $this->data = [
             'credentials' => $this->collectApiCredentials(),
             'requests' => $this->collectRequests()
-        );
+        ];
     }
 
     /**
@@ -56,11 +56,11 @@ class MonsumDataCollector extends DataCollector
      */
     protected function collectApiCredentials()
     {
-        return array(
+        return [
             'email' => $this->apiCredentials->getEmail(),
             'key' => $this->apiCredentials->getApiKey(),
             'account_hash' => $this->varToString($this->apiCredentials->getAccountHash())
-        );
+        ];
     }
 
     /**
@@ -71,12 +71,12 @@ class MonsumDataCollector extends DataCollector
     protected function collectRequests()
     {
         $requests = array_fill_keys(
-            array('article', 'coupon', 'customer', 'invoice', 'subscription'),
-            array(
+            ['article', 'coupon', 'customer', 'invoice', 'subscription'],
+            [
                 'calls' => 0,
                 'time' => 0,
-                'requests' => array()
-            )
+                'requests' => []
+            ]
         );
 
         $transportRequests = $this->transportCollector->getRequests();
@@ -86,12 +86,12 @@ class MonsumDataCollector extends DataCollector
 
             $requests[$service]['calls']++;
             $requests[$service]['time'] += $transportRequest['time'];
-            $requests[$service]['requests'][] = array(
+            $requests[$service]['requests'][] = [
                 'request' => $transportRequest['request'],
                 'response' => $transportRequest['response'],
                 'method' => $method,
                 'time' => $transportRequest['time']
-            );
+            ];
         }
 
         return $requests;

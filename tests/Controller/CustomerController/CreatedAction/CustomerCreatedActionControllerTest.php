@@ -18,7 +18,7 @@ class CustomerCreatedActionControllerTest extends AbstractControllerTestCase
     {
         $client = parent::createClient();
 
-        $mock = $this->createPartialMock('stdClass', array('eventHandlerCallback'));
+        $mock = $this->createPartialMock('stdClass', ['eventHandlerCallback']);
         $mock->expects(static::once())->method('eventHandlerCallback')->with(
             static::callback(function (CustomerCreatedEvent $event) {
                 $payloadData = $event->getPayloadData();
@@ -57,7 +57,7 @@ class CustomerCreatedActionControllerTest extends AbstractControllerTestCase
         $client
             ->getContainer()
             ->get('event_dispatcher')
-            ->addListener(MonsumNotificationEvents::INCOMING_CUSTOMER_CREATED, array($mock, 'eventHandlerCallback'));
+            ->addListener(MonsumNotificationEvents::INCOMING_CUSTOMER_CREATED, [$mock, 'eventHandlerCallback']);
 
         $data = file_get_contents(__DIR__ . '/Fixtures/' . $this->getName() . '.json');
         $client = $this->makeRequest('speicher210_monsum_notification_customer_created', $data, $client);

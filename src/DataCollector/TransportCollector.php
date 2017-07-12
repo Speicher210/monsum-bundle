@@ -30,7 +30,7 @@ class TransportCollector implements TransportInterface
      *
      * @var array
      */
-    protected $requests = array();
+    protected $requests = [];
 
     /**
      * Constructor.
@@ -74,11 +74,11 @@ class TransportCollector implements TransportInterface
 
         $stop = $this->stopwatch->stop($stopwatchId);
 
-        $this->requests[] = array(
+        $this->requests[] = [
             'time' => $stop->getDuration(),
             'request' => json_decode($body, true),
             'response' => json_decode($return, true),
-        );
+        ];
 
         return $return;
     }

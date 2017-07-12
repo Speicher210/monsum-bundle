@@ -20,7 +20,7 @@ class PaymentChargebackActionControllerTest extends AbstractControllerTestCase
     {
         $client = parent::createClient();
 
-        $mock = $this->createPartialMock('stdClass', array('eventHandlerCallback'));
+        $mock = $this->createPartialMock('stdClass', ['eventHandlerCallback']);
         $mock->expects(static::once())->method('eventHandlerCallback')->with(
             static::callback(function (PaymentChargebackEvent $event) {
                 $payloadData = $event->getPayloadData();
@@ -83,7 +83,7 @@ class PaymentChargebackActionControllerTest extends AbstractControllerTestCase
         $client
             ->getContainer()
             ->get('event_dispatcher')
-            ->addListener(MonsumNotificationEvents::INCOMING_PAYMENT_CHARGEBACK, array($mock, 'eventHandlerCallback'));
+            ->addListener(MonsumNotificationEvents::INCOMING_PAYMENT_CHARGEBACK, [$mock, 'eventHandlerCallback']);
 
         $data = file_get_contents(__DIR__ . '/Fixtures/' . $this->getName() . '.json');
         $client = $this->makeRequest('speicher210_monsum_notification_payment_chargeback', $data, $client);

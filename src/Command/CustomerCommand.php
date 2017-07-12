@@ -42,7 +42,7 @@ class CustomerCommand extends ContainerAwareCommand
 
         $table = new Table($output);
         $table->setHeaders(
-            array(
+            [
                 'ID',
                 'External ID',
                 'Create data',
@@ -52,12 +52,12 @@ class CustomerCommand extends ContainerAwareCommand
                 'Phone',
                 'Comment',
                 'Last update',
-            )
+            ]
         );
 
         foreach ($customers as $customer) {
             $table->addRow(
-                array(
+                [
                     $customer->getCustomerId(),
                     $customer->getCustomerExternalUid(),
                     $customer->getCreated() ? $customer->getCreated()->format(\DateTime::W3C) : null,
@@ -67,7 +67,7 @@ class CustomerCommand extends ContainerAwareCommand
                     $customer->getPhone(),
                     $customer->getComment(),
                     $customer->getLastUpdate() ? $customer->getLastUpdate()->format(\DateTime::W3C) : null,
-                )
+                ]
             );
         }
 

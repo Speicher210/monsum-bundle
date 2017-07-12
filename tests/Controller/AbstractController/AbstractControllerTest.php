@@ -21,7 +21,7 @@ class AbstractControllerTest extends AbstractControllerTestCase
             'speicher210_monsum_notification_subscription_created'
         );
 
-        $client->request('POST', $url, array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded'));
+        $client->request('POST', $url, [], [], ['CONTENT_TYPE' => 'application/x-www-form-urlencoded']);
 
         static::assertSame(Response::HTTP_UNSUPPORTED_MEDIA_TYPE, $client->getResponse()->getStatusCode());
     }
@@ -44,7 +44,7 @@ class AbstractControllerTest extends AbstractControllerTestCase
             'Invalid type in hook call. Expected hook type "subscription.created", got "unknown.type"'
         );
 
-        $data = json_encode(array('type' => 'unknown.type'));
+        $data = json_encode(['type' => 'unknown.type']);
         $client = $this->makeRequest('speicher210_monsum_notification_subscription_created', $data);
 
         static::assertSame(Response::HTTP_BAD_REQUEST, $client->getResponse()->getStatusCode());

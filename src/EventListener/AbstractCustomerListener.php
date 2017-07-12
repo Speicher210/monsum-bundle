@@ -40,10 +40,10 @@ abstract class AbstractCustomerListener implements EventSubscriberInterface
      */
     public static function getSubscribedEvents()
     {
-        return array(
+        return [
             MonsumNotificationEvents::INCOMING_CUSTOMER_CREATED => 'onCustomerCreated',
             MonsumNotificationEvents::INCOMING_CUSTOMER_CHANGED => 'onCustomerChanged',
             MonsumNotificationEvents::INCOMING_CUSTOMER_DELETED => 'onCustomerDeleted'
-        );
+        ];
     }
 }

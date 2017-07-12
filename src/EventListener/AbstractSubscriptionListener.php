@@ -55,12 +55,12 @@ abstract class AbstractSubscriptionListener implements EventSubscriberInterface
      */
     public static function getSubscribedEvents()
     {
-        return array(
+        return [
             MonsumNotificationEvents::INCOMING_SUBSCRIPTION_CREATED => 'onSubscriptionCreated',
             MonsumNotificationEvents::INCOMING_SUBSCRIPTION_CHANGED => 'onSubscriptionChanged',
             MonsumNotificationEvents::INCOMING_SUBSCRIPTION_CANCELED => 'onSubscriptionCanceled',
             MonsumNotificationEvents::INCOMING_SUBSCRIPTION_CLOSED => 'onSubscriptionClosed',
             MonsumNotificationEvents::INCOMING_SUBSCRIPTION_REACTIVATED => 'onSubscriptionReactivated'
-        );
+        ];
     }
 }

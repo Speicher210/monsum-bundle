@@ -45,7 +45,7 @@ class SubscriptionCommand extends ContainerAwareCommand
 
         $table = new Table($output);
         $table->setHeaders(
-            array(
+            [
                 'ID',
                 'External ID',
                 'Start data',
@@ -54,12 +54,12 @@ class SubscriptionCommand extends ContainerAwareCommand
                 'Status',
                 'Article number',
                 'Customer ID',
-            )
+            ]
         );
 
         foreach ($subscriptions as $subscription) {
             $table->addRow(
-                array(
+                [
                     $subscription->getSubscriptionId(),
                     $subscription->getSubscriptionExternalId(),
                     $subscription->getSubscriptionStart()->format(\DateTime::W3C),
@@ -68,7 +68,7 @@ class SubscriptionCommand extends ContainerAwareCommand
                     $subscription->getStatus(),
                     $subscription->getArticleNumber(),
                     $subscription->getCustomerId(),
-                )
+                ]
             );
         }
 

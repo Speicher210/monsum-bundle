@@ -23,7 +23,7 @@ abstract class AbstractControllerTestCase extends WebTestCase
         $client = $client ? $client : parent::createClient();
         $url = $client->getContainer()->get('router')->generate($routeName);
 
-        $client->request('POST', $url, array(), array(), array('CONTENT_TYPE' => 'application/json'), $data);
+        $client->request('POST', $url, [], [], ['CONTENT_TYPE' => 'application/json'], $data);
 
         return $client;
     }
