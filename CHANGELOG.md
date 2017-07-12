@@ -2,7 +2,7 @@
 
 All Notable changes to `speicher210/monsum-bundle` will be documented in this file.
 
-## [1.0.3] - 2017-xx-xx
+## [1.0.3] - 2017-07-12
 
 ### Added
 
