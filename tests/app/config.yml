@@ -2,7 +2,6 @@ framework:
     test: true
     secret: "secret"
     router: { resource: "%kernel.root_dir%/routing.yml" }
-    form: true
 
 speicher210_monsum:
   username: "user"
