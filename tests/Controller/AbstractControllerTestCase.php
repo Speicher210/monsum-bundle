@@ -27,4 +27,11 @@ abstract class AbstractControllerTestCase extends WebTestCase
 
         return $client;
     }
+
+    protected static function createKernel(array $options = [])
+    {
+        $options['debug'] = false;
+
+        return parent::createKernel($options);
+    }
 }
